@@ -20,7 +20,7 @@ export class ActionService {
     // post a single action
     async addAction(createActionDTO: CreateActionDTO): Promise<Action> {
         const newAction = await this.actionModel(createActionDTO);
-        return newAction.save(
+        return newAction.save();
     }
     // Edit action details
     async updateAction(actionID, createActionDTO: CreateActionDTO): Promise<Action> {

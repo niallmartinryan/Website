@@ -19,8 +19,8 @@ export class ActionController {
 
     // Retrieve actions list
     @Get('actions')
-    async getAllAction(@Res() res) {
-        const actions = await this.actionService.getAllAction();
+    async getAllActions(@Res() res) {
+        const actions = await this.actionService.getAllActions();
         return res.status(HttpStatus.OK).json(actions);
     }
 
@@ -31,25 +31,25 @@ export class ActionController {
         if (!action) throw new NotFoundException('Action does not exist!');
         return res.status(HttpStatus.OK).json(action);
     }
-// Update a customer's details
+// Update a action's details
     @Put('/update')
-    async updateCustomer(@Res() res, @Query('customerID') customerID, @Body() createCustomerDTO: CreateCustomerDTO) {
-        const customer = await this.customerService.updateCustomer(customerID, createCustomerDTO);
-        if (!customer) throw new NotFoundException('Customer does not exist!');
+    async updater(@Res() res, @Query('actionID') actionID, @Body() createActionDTO: CreateActionDTO) {
+        const action = await this.actionService.updateAction(actionID, createActionDTO);
+        if (!action) throw new NotFoundException('Action does not exist!');
         return res.status(HttpStatus.OK).json({
-            message: 'Customer has been successfully updated',
-            customer
+            message: 'Action has been successfully updated',
+            action
         });
     }
 
-    // Delete a customer
+    // Delete a action
     @Delete('/delete')
-    async deleteCustomer(@Res() res, @Query('customerID') customerID) {
-        const customer = await this.customerService.deleteCustomer(customerID);
-        if (!customer) throw new NotFoundException('Customer does not exist');
+    async deleteAction(@Res() res, @Query('actionID') actionID) {
+        const action = await this.actionService.deleteAction(actionID);
+        if (!action) throw new NotFoundException('Action does not exist');
         return res.status(HttpStatus.OK).json({
-            message: 'Customer has been deleted',
-            customer
+            message: 'Action has been deleted',
+            action
         })
     }
 }

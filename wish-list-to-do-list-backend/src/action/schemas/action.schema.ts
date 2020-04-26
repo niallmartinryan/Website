@@ -5,7 +5,7 @@ export const ActionSchema = new mongoose.Schema({
     Area: String,
     Description: String,
     Comments: String,
-    Priority: int,
+    Priority: Number,
     Due_Date: Date,
     Created_At: { type: Date, default: Date.now}
 })

@@ -5,7 +5,7 @@ export interface Action extends Document{
     readonly Area: String;
     readonly Description: String;
     readonly Comments: String;
-    readonly Priority: int;
+    readonly Priority: Number;
     readonly Due_Date: Date;
     readonly Created_At: Date;
 }
