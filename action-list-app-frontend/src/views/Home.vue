@@ -2,8 +2,8 @@
 <template>
     <div class="container-fluid">
       <div class="text-center">
-        <h1>Nest Action List App Tutorial</h1>
-       <p> Built with Nest.js, Vue.js and MongoDB</p>
+        <h1>To Do List</h1>
+       <p>Nest.js, Vue.js and MongoDB</p>
        <div v-if="actions.length === 0">
             <h2> No action found at the moment </h2>
         </div>
@@ -29,7 +29,7 @@
                   <td>{{ action.description }}</td>
                   <td>{{ action.comments }}</td>
                   <td>{{ action.priority }}</td>
-                  <td>{{ action.due_Date }}</td>
+                  <td>{{ action.dueDate | date }}</td>
                   <td>
                     <div class="d-flex justify-content-between align-items-center">
                                 <div class="btn-group" style="margin-bottom: 20px;">
@@ -47,6 +47,7 @@
 <script>
 import { server } from "../helper";
 import axios from "axios";
+
 export default {
   data() {
     return {
@@ -61,6 +62,7 @@ export default {
       axios
         .get(`${server.baseURL}/action/actions`)
         .then(data => (this.actions = data.data));
+        console.log(server.baseURL);
     },
     deleteAction(id) {
       axios

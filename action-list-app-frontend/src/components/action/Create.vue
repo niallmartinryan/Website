@@ -5,27 +5,27 @@
           <form id="create-post-form" @submit.prevent="createAction">
                <div class="form-group col-md-12">
                 <label for="title"> Title  </label>
-                <input type="text" id="Title" v-model="Title" name="title" class="form-control" placeholder="Enter Title">
+                <input type="text" id="Title"  name="title" v-model="title" class="form-control" placeholder="Enter Title">
                </div>
                <div class="form-group col-md-12">
-                <label for="area"> Area </label>
-                <input type="text" id="Area" v-model="Area" name="area" class="form-control" placeholder="Enter Area">
+                <label for="title"> Area </label>
+                <input type="text" id="Area" v-model="area" name="title" class="form-control" placeholder="Enter Area">
                </div>
              <div class="form-group col-md-12">
-                <label for="description"> Description </label>
-                <input type="text" id="description" v-model="description" name="description" class="form-control" placeholder="Enter Description">
+                <label for="title"> Description </label>
+                <input type="text" id="description" v-model="description" name="title" class="form-control" placeholder="Enter Description">
             </div>
             <div class="form-group col-md-12">
-                <label for="comments"> Comments </label>
-                <input type="text" id="comments" v-model="comments" name="comments" class="form-control" placeholder="Enter Comments">
+                <label for="title"> Comments </label>
+                <input type="text" id="comments" v-model="comments" name="title" class="form-control" placeholder="Enter Comments">
             </div>
             <div class="form-group col-md-12">
-                <label for="priority"> Priority  </label>
-                <input type="number" id="priority" v-model="priority" name="priority" class="form-control" placeholder="Enter Priority">
+                <label for="title"> Priority  </label>
+                <input type="number" id="priority" v-model="priority" name="title" class="form-control" placeholder="Enter Priority">
             </div>
               <div class="form-group col-md-12">
-                  <label for="due_Date"> Due_Date </label>
-                  <input type="date" id="Due_Date" v-model="due_date" name="due_date" class="form-control" placeholder="Enter Due_Date">
+                  <label for="title"> DueDate </label>
+                  <input type="date" id="dueDate" v-model="dueDate" name="title" class="form-control" placeholder="Enter Due Date">
               </div>
               <div class="form-group col-md-4 pull-right">
                   <button class="btn btn-success" type="submit"> Create Action </button>
@@ -46,18 +46,19 @@ export default {
       description: "",
       comments: "",
       priority: "",
-      due_Date: ""
+      dueDate: ""
     };
   },
   methods: {
     createAction() {
-      let customerData = {
+      console.log("THIS IS THE DATE YOU ARE LOOKING FOR" + this.dueDate);
+      let actionData = {
         title: this.title,
         area: this.area,
         description: this.description,
         comments: this.comments,
         priority: this.priority,
-        due_Date: this.Due_Date
+        dueDate: this.dueDate
       };
       this.__submitToServer(actionData);
     },

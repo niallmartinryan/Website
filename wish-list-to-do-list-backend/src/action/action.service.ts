@@ -3,6 +3,7 @@ import { Model } from 'mongoose';
 import { InjectModel } from '@nestjs/mongoose';
 import { Action } from './interfaces/action.interface';
 import { CreateActionDTO } from './dto/create-action.dto';
+import { Logger } from '@nestjs/common';
 
 @Injectable()
 export class ActionService {
@@ -20,6 +21,7 @@ export class ActionService {
     // post a single action
     async addAction(createActionDTO: CreateActionDTO): Promise<Action> {
         const newAction = await this.actionModel(createActionDTO);
+        Logger.log("This is my new action :" +newAction);
         return newAction.save();
     }
     // Edit action details

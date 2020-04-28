@@ -30,7 +30,7 @@
             </div>
               <div class="form-group col-md-12">
                   <label for="description"> Due Date </label>
-                  <input type="date" id="due_Date" v-model="action.due_date" name="description" class="form-control" placeholder="Enter Due Date">
+                  <input type="date" id="dueDate" v-model="action.dueDate" name="description" class="form-control" placeholder="Enter Due Date">
               </div>
               <div class="form-group col-md-4 pull-right">
                   <button class="btn btn-success" type="submit"> Edit Action </button>
@@ -61,7 +61,7 @@ export default {
         description: this.action.description,
         comments: this.action.phone,
         priority: this.action.priority,
-        due_Date: this.action.due_Date
+        dueDate: this.action.dueDate
       };
       axios
         .put(

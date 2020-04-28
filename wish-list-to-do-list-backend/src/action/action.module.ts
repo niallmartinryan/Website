@@ -7,7 +7,7 @@ import { ActionSchema} from './schemas/action.schema';
     imports: [
         MongooseModule.forFeature([{ name: 'Action', schema: ActionSchema }])
     ],
-    
+
     providers: [ActionService],
     controllers: [ActionController]
 })

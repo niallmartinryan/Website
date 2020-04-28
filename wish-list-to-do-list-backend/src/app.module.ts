@@ -5,7 +5,8 @@ import { MongooseModule } from '@nestjs/mongoose';
 import { ActionModule } from './action/action.module';
 
 @Module({
-imports: [MongoosModule.forRoot('mongodb://localhost/customer-app',{ useNewUrlParser: true},ActionModule],
+imports: [MongooseModule.forRoot('mongodb://localhost/wish-list-to-do-list-backend',{ useNewUrlParser: true}),
+          ActionModule],
   controllers: [AppController],
   providers: [AppService],
 })
